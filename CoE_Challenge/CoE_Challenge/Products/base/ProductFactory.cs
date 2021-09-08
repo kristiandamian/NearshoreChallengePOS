@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace CoE_Challenge.Products
 {
@@ -24,6 +25,19 @@ namespace CoE_Challenge.Products
                 ListOfTs.Add(new T());
             }
             return ListOfTs;
+        }
+
+        public static List<IProduct> CreateFromList(List<string> ListOfClasses) 
+		{
+            var ListOfTs = new List<IProduct>();
+			ListOfClasses.ForEach(x=> ListOfTs.Add(GetInstance(x) as IProduct));
+			return ListOfTs;
+		}
+
+        static object GetInstance(string strFullyQualifiedName) 
+        {         
+             Type t = Type.GetType($"CoE_Challenge.Products.{strFullyQualifiedName}"); 
+             return  Activator.CreateInstance(t);         
         }
     }
 }

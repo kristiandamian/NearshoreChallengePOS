@@ -28,19 +28,8 @@ namespace CoE_Challenge
         const float TAX = .16f;
         List<IProduct> order = new  List<IProduct>();
 
-        public void AddProducto(IProduct product) => order.Add(product);
-
-        /*
-        chips => 10
-        dip => 10
-        Nachos => 7
-        Shampoo => 12.95
-        soap => 8
-        soda => 13.5
-        TOTAL =>  61.45
-
-         // 76.4440 //56.9+7 = 63.9 + 13.5 + 10 = 87.4
-        */
+        public void AddProduct(IProduct product) => order.Add(product);
+        public void AddProductRange(List<IProduct> products) => order.AddRange(products);
 
         public void GetResult(IPrinter printer)
         {

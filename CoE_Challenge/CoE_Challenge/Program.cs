@@ -1,5 +1,6 @@
 ﻿using CoE_Challenge.Products;
 using CoE_Challenge.Printer;
+using System.Collections.Generic;
 
 namespace CoE_Challenge
 {
@@ -13,13 +14,8 @@ namespace CoE_Challenge
 
 		static void AddProducts()
 		{
-			POS.Instance.AddProducto(ProductFactory.Create<Chips>());
-			POS.Instance.AddProducto(ProductFactory.Create<Nachos>());
-			POS.Instance.AddProducto(ProductFactory.Create<Dip>());
-			POS.Instance.AddProducto(ProductFactory.Create<Nachos>());
-			POS.Instance.AddProducto(ProductFactory.Create<Shampoo>());
-			POS.Instance.AddProducto(ProductFactory.Create<Soap>());
-			POS.Instance.AddProducto(ProductFactory.Create<Soda>());
+			var products = ProductFactory.CreateFromList(new List<string>{ "Chips", "Nachos", "Nachos", "Dip", "Shampoo", "Soap", "Soda"} );
+			POS.Instance.AddProductRange(products);
 		}
 	}
 }
