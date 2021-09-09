@@ -29,7 +29,7 @@ namespace CoE_Challenge
         List<IProduct> order = new  List<IProduct>();
 
         public void AddProduct(IProduct product) => order.Add(product);
-        public void Lines(List<IProduct> products) => order.AddRange(products);
+        public void Order(List<IProduct> products) => order.AddRange(products);
 
         public void GetResult(IPrinter printer)
         {

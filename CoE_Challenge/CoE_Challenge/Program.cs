@@ -14,8 +14,9 @@ namespace CoE_Challenge
 
 		static void AddProducts()
 		{
-			var products = ProductFactory.CreateFromList(new List<(string className, int quantity)>{("Shampoo", 4), ("Soap", 5), ("Nachos", 2), ("Soda", 1), ("Chips", 1) });
-			POS.Instance.Lines(products);
+			var lines = ProductFactory.CreateFromList(new List<(string className, int quantity)>{("Shampoo", 4), ("Soap", 5), ("Nachos", 2), 
+																									("Soda", 1), ("Chips", 1) });
+			POS.Instance.Order(lines);
 		}
 	}
 }
