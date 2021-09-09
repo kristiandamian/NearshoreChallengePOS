@@ -20,13 +20,12 @@ namespace CoE_Challenge.Promotions.ProductPromotions
         {
            var shampoos = items.Where(t => t is Shampoo).Count();
            var soaps = items.Where(t => t is Soap).Count();
-           var soapsToAdd = Math.Min(shampoos, soaps)/2;
+           var soapsToAdd = Math.Min(shampoos, soaps);
            AddSoaps(items, soapsToAdd);
         }
 
         public void AddSoaps(List<IProduct> items, int soapsToAdd)
         {
-            if(soapsToAdd == 0) soapsToAdd = 1; //when is only one bundle
             for(int x=0; x< soapsToAdd; x++){
                 items.Add(ProductFactory.Create<Soap>(0) as IProduct);
             }

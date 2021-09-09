@@ -25,11 +25,11 @@ namespace CoE_Challenge
             }
         }
 
-        const float TAX = .16f;
+        const decimal TAX = .16m;
         List<IProduct> order = new  List<IProduct>();
 
         public void AddProduct(IProduct product) => order.Add(product);
-        public void AddProductRange(List<IProduct> products) => order.AddRange(products);
+        public void Lines(List<IProduct> products) => order.AddRange(products);
 
         public void GetResult(IPrinter printer)
         {
@@ -37,15 +37,9 @@ namespace CoE_Challenge
             printer.Print(order, GetTotal(), GetTax());
         }
 
-        public float GetTotal()
-        {
-            return order.Sum(x => x.Price);
-        }
+        public decimal GetTotal() => order.Sum(x => x.Price);
 
-        public float GetTax()
-        {
-            return order.Sum(x => x.Price) * TAX;
-        }
+        public decimal GetTax() => order.Sum(x => x.Price) * TAX;
     
         void ApplyPromotions()
         {

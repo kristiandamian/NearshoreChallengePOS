@@ -20,13 +20,12 @@ namespace CoE_Challenge.Promotions.ProductPromotions
         {
            var sodas = items.Where(t => t is Soda).Count();
            var chips = items.Where(t => t is Chips).Count();
-           var chipsToAdd = Math.Min(sodas, chips)/2;
+           var chipsToAdd = Math.Min(sodas, chips);
            AddChips(items, chipsToAdd);
         }
 
         public void AddChips(List<IProduct> items, int chipsToAdd)
         {
-            if(chipsToAdd == 0) chipsToAdd = 1; //when is only one bundle
             for(int x=0; x< chipsToAdd; x++){
                 items.Add(ProductFactory.Create<Chips>(0) as IProduct);
             }
