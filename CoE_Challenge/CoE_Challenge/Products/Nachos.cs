@@ -4,7 +4,7 @@
     {
         public string Name { get; } = "Nachos";
         public float Price { get; set; } = 7;
-		public bool IsSnack { get; } = false;
+		public bool IsSnack { get; } = true;
 		public bool IsDiscount { get; } = false;
     }
 }

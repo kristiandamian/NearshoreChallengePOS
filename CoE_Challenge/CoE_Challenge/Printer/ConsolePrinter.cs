@@ -10,8 +10,14 @@ namespace CoE_Challenge.Printer
             foreach(var product in order){
                 Console.WriteLine($"{product.Name}  --  {product.Price}");
             }
-            Console.WriteLine($"Total:           {total}");
-            Console.WriteLine($"Tax:             {tax}");
+            PrintFooters(total, tax);
         } 
+
+        public void PrintFooters(float total, float tax)
+		{
+            Console.WriteLine($"SubTotal:           {total}");
+            Console.WriteLine($"Tax:             {tax}");
+            Console.WriteLine($"Tax:             {total + tax}");
+		}
     } 
 }
